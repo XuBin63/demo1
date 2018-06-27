@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css">
+	body{
+		background: url(../images/ChMkJlauzYiIIU3UAFNltyuxFDQAAH9GAKkOzMAU2XP642.jpg) no-repeat;
+		background-size: cover;
+	}
+a{
+	text-decoration:none;
+	}
+a:hover{
+	color:#F00;
+	}
+.divpre{
+	margin-top:150px;
+	margin-left:150px;
+	}
+.divpre p{
+	font-family:方正大黑简体;
+	font-size:42px;
+	letter-spacing:4px;
+	color:#00F;
+	}
+#divbd{
+	position:absolute;
+	background-color:#FFF;
+	width:300px;
+	height:320px;
+	margin-left:750px;
+	margin-top:-150px;
+	}
+#p1{
+	font-size:28px;
+	color:#00F;
+	margin-top:20px;
+	margin-left:10px;
+	font-weight:700;
+	}
+#userNameDiv{
+	position:absolute;
+	font-size:10px;
+	color:#F00;
+	margin-top:40px;
+	margin-left:70px;
+	}
+#passDiv{
+	position:absolute;
+	font-size:10px;
+	color:#F00;
+	margin-top:82px;
+	margin-left:70px;
+	}
+</style>
+<script language="javascript">
+function checkName(){
+	var userName=document.regForm.userNameTxt.value;
+	document.getElementById("userNameDiv").innerHTML="";
+	var firstChar=userName.charAt(0);
+	if(userName==""){
+		document.getElementById("userNameDiv").innerHTML="用户名不能为空，请重新输入";
+		/*alert("用户名不能为空，请重新输入");*/
+		/*document.regForm.userNameTxt.focus();*/
+		return false;
+		}
+		if(firstChar>='0'&&firstChar<='9'){
+			document.getElementById("userNameDiv").innerHTML="用户名不能数字开头，请重新输入！";
+			/*alert("用户名不能数字开头，请重新输入！");*/
+		document.regForm.userNameTxt.value="";
+		/*document.regForm.userNameTxt.focus();*/
+		return false;
+		}
+		return true;
+	}
+function checkPass(){
+	var pass=document.regForm.passTxt.value;
+	document.getElementById("passDiv").innerHTML="";
+	if(pass==""){
+		document.getElementById("passDiv").innerHTML="密码不能为空，请重新输入！";
+		/*alert("密码不能为空，请重新输入！")
+		document.regForm.passTxt.focus();*/
+		return false;
+		}
+	if(pass.length<6){
+		document.getElementById("passDiv").innerHTML="密码长度要大于6位";
+		/*alert("密码长度要大于6位")*/
+		document.regForm.passTxt.value="";
+		/*document.regForm.passTxt.focus();*/
+		return false;
+		}
+		return true;
+	}
+/*function checkAll(){
+	if(checkName()&&checkPass())
+	return false;
+	else
+	return true;
+	}*/
+	function changeFocus(){
+		if(event.keyCode==13){
+			event.keyCode=9;
+		}
+		}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="SpryAssets/SpryValidationPassword.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryValidationPassword.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div>
+<div class="divpre">
+<p>纯净世界 健康生活</p>
+<p style="font-size:24px; margin-left:150px;">Purer World.Purer Life</p>
+</div>
+<div id="divbd">
+<p id="p1">普通登录</p>
+<hr style="width:120px; margin-left:15px; height:2px; background-color:#00F;"/>
+<hr style="width:120px; margin-left:145px; height:2px; position:absolute; margin-top:-12px;"/>
+<form name="regForm">
+<P style=" position:absolute;margin-left:10px;">用户名:</P>
+<input name="userNameTxt" type="text" id="userNameTxt" width="35%;" height="20px" style=" position:absolute;margin-top:15px; margin-left:70px;" onblur="checkName()" onkeydown="changeFocus()"/>
+<div style="display:inline;" id="userNameDiv"></div>
+<span id="sprypassword1">
+<P style="position:absolute; margin-top:60px; margin-left:15px;">密码:</P>
+<input type="password" name="passTxt" id="passTxt" width="35%"  style=" position:absolute;margin-left:70px; margin-top:60px;" onblur="checkPass()" onkeydown="changeFocus()"/>
+<div style="display:inline;" id="passDiv"></div>
+</span>
+<input type="checkbox" name="checkbox" id="checkbox" style="margin-top:100px; margin-left:70px;" />记住密码 &nbsp;&nbsp;<a href="#">忘记密码？</a>
+<center>
+  <a href="#" onclick="checkAll()"><div style="background-color:#00F; width:200px; text-align:center; font-size:24px; height:30px; padding-top:5px; font-weight:700; color:#FFF; margin-top:15px;">登录</div></a></form>
+</center>
+<P style="margin-left:50px; font-size:12px; opacity:0.6;"><a href="#">免费注册</a>|<a href="#">密码找回</a></P>
+</div>
+</div>
+<script type="text/javascript">
+var sprypassword1 = new Spry.Widget.ValidationPassword("sprypassword1");
+</script>
+</body>
+</html>
